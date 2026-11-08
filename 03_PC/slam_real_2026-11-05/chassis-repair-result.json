@@ -1,0 +1,10 @@
+{
+  "session": "/mnt/e/FishBot_Course/slam_real_2026-11-05/sessions/20261106_193351_after_d0wd_recovery",
+  "previous_session": "/mnt/e/FishBot_Course/slam_real_2026-11-05/sessions/20261106_192032_new_scene",
+  "started_unix": 1793964831.480919,
+  "launch_pid": 3222,
+  "status": "chassis reset recovered, starting new SLAM because odom origin reset",
+  "motion_mode": "user keyboard control; currently disarmed",
+  "root_cause": "latched hardware/control fault confirmed; original first trigger not captured",
+  "firmware_flashed": false
+}

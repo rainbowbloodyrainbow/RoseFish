@@ -1,0 +1,32 @@
+2026-11-07 实测几何更新（源码/模型已准备，未烧录）
+测量坐标：X向右、Y向前。ROS：x向前、y向左、z向上。
+base_link采用底板平面中心，即图中(50,72.25)mm，Z参考沿用此前定义。
+换算：x_ROS=(Y_mm-72.25)/1000；y_ROS=(50-X_mm)/1000。
+底板144.5×100mm；轮宽18.5mm；左右轮中心距135.5mm；整车宽154mm。
+轮心相对base_link：左(-72.25,+67.75)mm，右(-72.25,-67.75)mm。
+雷达相对base_link：(3.30,-11.15,50)mm；相对轮轴中点：(75.55,-11.15,50)mm。
+雷达直径63.5mm；yaw仍沿用先前粗测-94度，roll/pitch暂为0。
+轮径47.3mm和每圈10200ticks保留，不将雷达直径当轮径。
+
+固件内部继续在轮轴中点积分；发布base_link时：
+x_center=x_axle+0.07225*cos(theta)，y_center=y_axle+0.07225*sin(theta)。
+base_link速度vx=v_axle、vy=0.07225*omega、wz=omega。
+因此转弯时底板中心vy不为0是正常刚体运动，不能将它误认为侧滑。
+odom原点仍是上电时的轮轴中点；这不要求base_link起始位置为0。
+
+model/fishbot_measured.urdf.xacro 为原生可编辑布局模型。
+底板厚度1mm、轮心Z=0、激光薄圆盘厚度1mm只是可视化占位，不是实测3D或动力学模型；未编造质量、惯量和碰撞参数。
+运行model时由robot_state_publisher发布固定TF；sensors.launch.py会禁用重复的static laser TF。
+
+部署状态：新固件尚未烧录，旧运行进程未热切换。
+run_sensors.sh启动新TF前要求geometry-board-deployment.json标记实际已验证的measured_plate_center_20261107固件，防止与旧轮轴原点固件混用。
+后续明确烧录并核对新app哈希/发布位置后，再记录该部署标记并重启传感器/新建SLAM。
+旧启动器和旧备份不代表本次新坐标版本，不能混用。
+
+验证：ESP-IDF构建通过，启动文件参数解析通过；模型展开及坐标/刚体速度换算验证通过。
+轮轴原地旋转90度时，底板中心会移动约102.18mm，这不代表里程计错误。
+未来导航控制器需核对其差速运动学使用的参考点；可利用base_axle作为轮轴参考，不可默认底板中心横向速度为零。
+
+2026-11-08 部署更新：D0WD新固件已烧录，Flash校验及启动ELF哈希核对通过。
+18秒静止日志PWM全0；未启动电脑端服务，Agent不可用，ROS发布位姿尚待核对。
+geometry-board-deployment.json已记录实际固件身份；后续启用新TF时仍需核对话题及坐标变换，并新建SLAM会话。

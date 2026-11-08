@@ -1,0 +1,7 @@
+{
+  "name": "xtensa-esp-elf",
+  "version": "esp-15.2.0_20251204",
+  "sha256": "3d50f5cd5f173acfd524e07c1cd69bc99585731a415ca2e5bce879997fe602b8",
+  "size": 180530004,
+  "url": "https://github.com/espressif/crosstool-NG/releases/download/esp-15.2.0_20251204/xtensa-esp-elf-15.2.0_20251204-x86_64-linux-gnu.tar.xz"
+}

@@ -1,0 +1,16 @@
+{
+  "geometry_version": "measured_plate_center_20261107",
+  "build_succeeded": true,
+  "build_exit_code": 0,
+  "app_sha256": "388ec82c4b1515403610ded1eda21fcc9d8b1dcaa2acfb2f78c5f4583d2b01d0",
+  "elf_sha256": "f0bc7702192c079664f487460b1a24d2278afd0464d7741b985b00fa17ae5b48",
+  "app_bytes": 883552,
+  "track_m": 0.1355,
+  "base_link_forward_from_axle_m": 0.07225,
+  "backup_path": "E:\\FishBot_Course\\backups\\Geometry_center_20261107_001230",
+  "flashed": true,
+  "running_services_restarted": false,
+  "launch_arguments_parsed": true,
+  "flash_date": "2026-11-08",
+  "board_deployment_metadata": "geometry-board-deployment.json"
+}

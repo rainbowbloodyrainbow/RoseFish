@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-30",
+  "firmware": "user-provided remoteESP/main/remoteESP.c",
+  "setup": "wheels lifted; motor power on",
+  "forward": {
+    "user_observation": "动了，都向前",
+    "encoder_sign": "positive for both wheels in firmware-corrected coordinates",
+    "initial_0_8s_tick_delta": {"left": 1008, "right": 1015},
+    "initial_stop_confirmed": true,
+    "longer_test_note": "Collector file replacement failed during right-wheel stop. Original serial line at device time 505539 ms confirms zero command and PWM=0,0. This longer test's automatic right-wheel result is incomplete."
+  },
+  "reverse": {
+    "complete": false,
+    "reason": "Test aborted on odometry receive gap over 350ms; serial also records Agent session disconnect and reconnect.",
+    "final_pwm": [0, 0],
+    "firmware_fault_latched": false
+  },
+  "not_yet_validated": ["continuous reverse motion on both wheels", "ground travel", "dual-wheel speed accuracy", "odometry distance calibration", "network stability"]
+}

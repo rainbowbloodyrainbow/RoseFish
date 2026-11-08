@@ -1,0 +1,7 @@
+/build/
+/sdkconfig
+/sdkconfig.old
+/sdkconfig.wifi.defaults
+/*.log
+/*.bin
+__pycache__/

@@ -1,0 +1,32 @@
+{
+  "reason": "2-second bound completed",
+  "odom_displacement_m": 0.04795753494663219,
+  "known_before": 149,
+  "known_after": 186,
+  "map_count_before": 2,
+  "map_count_after": 29,
+  "final_v": 0.0,
+  "final_w": -0.0,
+  "last_health": {
+    "scan_count": 334,
+    "odom_count": 328,
+    "map_count": 29,
+    "scan_received": 1793963983.494216,
+    "odom_received": 1793963983.4607818,
+    "tf_received": 1793963983.494427,
+    "updated": 1793963983.5148034,
+    "cmd_publishers": 1,
+    "map_width": 20,
+    "map_height": 12,
+    "map_resolution": 0.05000000074505806,
+    "map_known": 186,
+    "map_occupied": 59,
+    "x": 0.13555572561212176,
+    "y": 0.01893471964045631,
+    "v": 0.0,
+    "w": -0.0,
+    "qz": 0.012886203908788255,
+    "qw": 0.9999169694273725,
+    "forward_obstacle_x_m": 0.5913378488959721
+  }
+}

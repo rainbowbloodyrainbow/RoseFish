@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-06",
+  "change": "Removed only wheel_update motor/encoder direction-disagreement permanent lockout per explicit user request",
+  "chip": "ESP32-D0WD-V3 rev3.1",
+  "port": "COM13",
+  "app_offset": "0x10000",
+  "app_sha256": "227a5e0a073dec32bff623ae5a6c25dfbc0daaf7da55eb67fdb7c06a09bae52b",
+  "source_sha256": "5f28e31cfa233d8f5df342f13711d021314a61153c3039234815d545a75b19ec",
+  "backup": "E:\\FishBot_Course\\backups\\D0WD_direction_guard_20261106_195734",
+  "flash_hash_verified": true,
+  "remaining_protections": [
+    "400ms cmd_vel timeout",
+    "100ms control scheduling guard",
+    "Agent lease and reconnect stale-command discard",
+    "PWM cap",
+    "coast/quiet wait on direction reversal",
+    "other hardware/control fault locks"
+  ],
+  "validation": {
+    "idle_serial_s": 25,
+    "pwm_nonzero_samples": 0,
+    "odom_messages": 202,
+    "odom_hz": 10.0803,
+    "automatic_motion_test": false,
+    "reverse_ground_validation": false
+  },
+  "slam_status": "old SLAM stopped because board restart reset odom; existing saved maps retained"
+}

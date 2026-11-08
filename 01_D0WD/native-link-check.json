@@ -1,0 +1,17 @@
+{
+  "duration_s": 20.081089781999253,
+  "invalid_messages": [],
+  "command": "zero Twist at 20Hz",
+  "odom": {
+    "count": 235,
+    "average_hz": 12.02458097957692,
+    "max_gap_s": 1.0379074789998413,
+    "last_stamp_age_s": 0.7299156188964844
+  },
+  "tf": {
+    "count": 236,
+    "average_hz": 12.075426410620521,
+    "max_gap_s": 1.0607323829999586,
+    "last_stamp_age_s": 0.7299346923828125
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "port": "COM11",
+  "chip": "ESP32-D0WD-V3 rev3.1",
+  "mac": "68:09:47:9b:a3:f0",
+  "flash_offset": "0x10000",
+  "flash_hash_verified": true,
+  "app_sha256": "388ec82c4b1515403610ded1eda21fcc9d8b1dcaa2acfb2f78c5f4583d2b01d0",
+  "boot_elf_sha256_prefixes": [
+    "f0bc77021"
+  ],
+  "expected_elf_sha256": "f0bc7702192c079664f487460b1a24d2278afd0464d7741b985b00fa17ae5b48",
+  "boot_matches_expected": true,
+  "idle_log_seconds": 18,
+  "pwm_samples": 17,
+  "nonzero_pwm_samples": 0,
+  "panic_detected": false,
+  "backup_path": "E:\\FishBot_Course\\backups\\Geometry_flash_20261108_155828",
+  "motion_command_sent": false,
+  "running_ros_services_restarted": false
+}

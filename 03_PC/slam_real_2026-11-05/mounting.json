@@ -1,0 +1,24 @@
+{
+  "measured_translation_m": {
+    "x": 0.0033,
+    "y": -0.01115,
+    "z": 0.05
+  },
+  "roll": 0.0,
+  "pitch": 0.0,
+  "yaw": -1.6406094968746698,
+  "orientation_verified": true,
+  "mounting_calibrated": false,
+  "source": "User measured diagram 2026-11-07; diagram +Y confirmed forward; height and orientation unchanged",
+  "yaw_deg": -94,
+  "calibration_level": "coarse physical front/left target check; not precision calibrated",
+  "yaw_uncertainty_deg": 5,
+  "orientation_evidence": [
+    "orientation-front.json",
+    "orientation-left.json"
+  ],
+  "reference_frame": "base_link at plate XY center",
+  "geometry_version": "measured_plate_center_20261107",
+  "planar_translation_updated": true,
+  "requires_matching_firmware": true
+}

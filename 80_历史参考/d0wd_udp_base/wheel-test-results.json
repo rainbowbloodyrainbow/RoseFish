@@ -1,0 +1,86 @@
+[
+  {
+    "wheel": 0,
+    "pwm_request": 100,
+    "tick_delta": [
+      0,
+      0
+    ],
+    "peak_pwm": [
+      100.0,
+      0.0
+    ],
+    "stopped": true,
+    "fault": false
+  },
+  {
+    "wheel": 0,
+    "pwm_request": 200,
+    "tick_delta": [
+      16,
+      0
+    ],
+    "peak_pwm": [
+      200.0,
+      0.0
+    ],
+    "stopped": true,
+    "fault": false
+  },
+  {
+    "wheel": 0,
+    "pwm_request": 300,
+    "tick_delta": [
+      2,
+      0
+    ],
+    "peak_pwm": [
+      300.0,
+      0.0
+    ],
+    "stopped": true,
+    "fault": false
+  },
+  {
+    "wheel": 1,
+    "pwm_request": 100,
+    "tick_delta": [
+      0,
+      0
+    ],
+    "peak_pwm": [
+      0.0,
+      100.0
+    ],
+    "stopped": true,
+    "fault": false
+  },
+  {
+    "wheel": 1,
+    "pwm_request": 200,
+    "tick_delta": [
+      0,
+      -1
+    ],
+    "peak_pwm": [
+      0.0,
+      200.0
+    ],
+    "stopped": true,
+    "fault": false
+  },
+  {
+    "wheel": 1,
+    "pwm_request": 300,
+    "tick_delta": [
+      0,
+      -4
+    ],
+    "peak_pwm": [
+      0.0,
+      300.0
+    ],
+    "stopped": true,
+    "fault": false
+  }
+]

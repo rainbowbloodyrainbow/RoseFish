@@ -1,0 +1,73 @@
+双板小车：D0WD 底盘 + ESP32-S3 + YDLIDAR-X3
+本次集成：2026-11-05；全部工程及日志保存在 E 盘。
+
+启动（在课程项目目录的 PowerShell 中）：
+  powershell -ExecutionPolicy Bypass -File .\启动双板小车.ps1
+启动器复用已有 Agent、D0WD UDP 转发和键盘服务，并启动 S3 接收、雷达驱动、
+base_link → laser_link 的静态 TF 和 RViz。启动时不会自动启用电机控制。
+仅后台接收、不启动 RViz：在命令末尾加 -NoRviz。
+S3 DHCP 地址改变时：在命令末尾加 -S3IP 新地址。
+当前 S3：10.212.8.152:8889；当前电脑热点地址：10.212.8.109。
+配置保存在 link.json。热点仍为 D0WD 使用的 OnePlus Ace 3 Pro。
+
+供电和连接：
+S3 必须保持与雷达连接，并持续供电；D0WD 也必须持续供电。
+USB 数据线用于烧录和查看日志。正常运行不要求两块板都用 USB 数据线连接电脑，
+但拔掉 USB 后必须有其他可靠供电，确保芯片仍运行。不要把“拔掉数据线”当作“断开供电”。
+两个 ESP32 分别通过 WiFi 与电脑通信，不需要再加一根 S3 到 D0WD 的数据线。
+本次未改雷达原接线：雷达 TX → S3 GPIO4，115200 / 8N1，共地，单向接收。
+
+通信逻辑：
+雷达 → S3 UART1 → WiFi TCP 8889 → WSL TCP/PTY 桥接 → ydlidar → /scan。
+键盘 → /cmd_vel → micro-ROS Agent → Windows UDP 8888 转发 → D0WD → 电机。
+编码器 → D0WD → /odom 和 odom → base_link TF。
+所有 ROS 节点使用 domain 0 和实际系统时间，不使用仿真 /clock。
+雷达时间戳由电脑上的驱动处理；未实现 S3 与底盘的硬件触发同步。
+
+观察与遥控：
+RViz 固定坐标系为 odom，显示 /scan、/odom 和 TF。
+如果只有 S3 上电，/scan 仍可能正常，但缺少底盘 odom → base_link，
+因此以 odom 显示雷达时会出现 TF/队列提示。应恢复 D0WD 供电，不添加假的里程计。
+键盘面板：http://127.0.0.1:8765/ 。刷新后点击“启用键盘控制”。
+W/A/S/D 或方向键移动，松开停车，空格/Esc 急停。
+电脑端反馈中断不锁定控制，键盘心跳 300 ms 超时仍停车；
+D0WD 保留此前调整过的 Agent 容错及 400 ms 速度指令超时停车。
+
+按要求暂不测量安装位置：
+联合显示暂用 base_link → laser_link 的零平移、零旋转占位。
+这只用于数据链路联调，不能据此认为雷达外参已经标定。
+实际移动建图前，需把 dual_robot.launch.py 的 laser_x/y/z/roll/pitch/yaw 填为实测值。
+本次不自动启动 SLAM 或导航，也不自动发车。
+
+联合检查（Windows PowerShell）：
+  wsl -d Ubuntu -- bash -lc 'source /opt/ros/humble/setup.bash && python3 /mnt/e/FishBot_Course/s3_lidar_car_2026-11-05/check_dual.py'
+检查 20 秒真实 /scan、/odom 和扫描时间戳对应的 odom → laser_link。
+结果写入 dual-check.json。只读检查，不发送运动指令。
+
+停止本次雷达接入与 RViz：
+  wsl -d Ubuntu -- python3 /mnt/e/FishBot_Course/s3_lidar_car_2026-11-05/stop_lidar.py
+只停止本次雷达 launch 及其子进程，保留底盘 Agent 和键盘服务。
+同一个 S3 只允许一个 TCP 客户端，不要重复启动另一份桥接或驱动。
+若 S3 断电后恢复，出现扫描时间戳异常或长期无扫描，可先执行上述停止命令，
+等它退出后重新运行“启动双板小车.ps1”，清空跨断电会话的驱动时间状态。
+
+文件与恢复：
+firmware/：本机重新编译的 ESP-IDF 6.0.1 S3 工程；本地 WiFi 配置不打印密码。
+host/：用户归档的配套 Python 透传程序、驱动源码和参数。
+/home/zsw2/fishbot_dual_ws：本机单独构建的 ydlidar 工作区。
+original-binaries/：用户压缩包中的旧固件，仍使用归档时的热点，不作为当前版本。
+backup/before_integration_used_2MB.bin：从实际 S3 读取的前 2MB，
+覆盖原 NVS、PHY 和全部应用分区（分区末尾 0x110000）。
+此备份并非 16MB 全片；高速全片读取失败的日志保留在 backup/read-flash.log。
+backup/read-used-flash.log：成功低速备份记录。
+s3-build.log、s3-flash.log：编译和烧录校验记录。
+s3-boot.log：当前热点 IP 和 UART 数据统计。
+dual-run.log、dual-error.log：联合运行日志。
+工程、旧配置和固件含本地 WiFi 凭据，应作为私人课程资料保存。
+
+本次实际联合验证结果（20 秒窗口）：
+双板同时供电，雷达 /scan 243 帧，约 12.19 Hz；每帧至少 263 个范围内有效点。
+底盘 /odom 140 条，约 7.02 Hz；odom → base_link → laser_link 完整链路可用。
+241 帧扫描可按其自身时间戳查询到 odom → laser_link，其余 2 帧在窗口结束时等待 TF。
+最后一帧扫描约 88 ms，最后里程计约 46 ms；安装外参仍未标定。
+证据：dual-check.json。此结果证明当前链路连通，不等于已完成距离、朝向或移动建图标定。

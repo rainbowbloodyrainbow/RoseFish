@@ -1,0 +1,23 @@
+/**:
+  ros__parameters:
+    port: /tmp/fishbot_s3_lidar
+    use_sim_time: false
+    frame_id: laser_link
+    baudrate: 115200
+    lidar_type: 1
+    device_type: 0
+    sample_rate: 3
+    intensity_bit: 8
+    abnormal_check_count: 4
+    fixed_resolution: true
+    reversion: true
+    inverted: true
+    auto_reconnect: true
+    isSingleChannel: true
+    support_motor_dtr: true
+    angle_max: 180.0
+    angle_min: -180.0
+    range_max: 8.0
+    range_min: 0.1
+    frequency: 5.0
+    invalid_range_is_inf: true

@@ -1,0 +1,14 @@
+{
+  "geometry_version": "measured_plate_center_20261107",
+  "date": "2026-11-08",
+  "verified_on_board": true,
+  "verification": "esptool write hash and running boot ELF hash prefix",
+  "ros_pose_verified": true,
+  "app_sha256": "388ec82c4b1515403610ded1eda21fcc9d8b1dcaa2acfb2f78c5f4583d2b01d0",
+  "port": "COM11",
+  "mac": "68:09:47:9b:a3:f0",
+  "flash_offset": "0x10000",
+  "backup_path": "E:\\FishBot_Course\\backups\\Geometry_flash_20261108_155828",
+  "running_services_restarted": true,
+  "ros_pose_note": "Stationary startup odom x=0.07225,y=0 verified 2026-11-08; later map session also passed timestamped TF checks."
+}

@@ -1,0 +1,7 @@
+{
+  "s3_ip": "10.212.8.152",
+  "s3_port": 8889,
+  "chassis_pc_ip": "10.212.8.109",
+  "ros_domain_id": 0,
+  "mounting_calibrated": false
+}

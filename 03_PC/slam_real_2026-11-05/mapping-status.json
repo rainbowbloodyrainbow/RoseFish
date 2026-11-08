@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-06",
+  "stage": "stationary SLAM and one bounded ground forward trial",
+  "mounting": {
+    "measured_translation_m": {
+      "x": 0.1,
+      "y": -0.01,
+      "z": 0.05
+    },
+    "roll": 0.0,
+    "pitch": 0.0,
+    "yaw": -1.6406094968746698,
+    "orientation_verified": true,
+    "mounting_calibrated": false,
+    "source": "User measured: forward100mm, right10mm, up50mm. Zero orientation is provisional for stationary bringup only.",
+    "yaw_deg": -94,
+    "calibration_level": "coarse physical front/left target check; not precision calibrated",
+    "yaw_uncertainty_deg": 5,
+    "orientation_evidence": [
+      "orientation-front.json",
+      "orientation-left.json"
+    ]
+  },
+  "ground_forward_confirmed_by_user": true,
+  "odom_displacement_m": 0.0265,
+  "trial_stop_reason": "scan_received stale >0.4s",
+  "robot_disarmed": true,
+  "mobile_slam_validated": false,
+  "loop_closure_validated": false,
+  "navigation_validated": false,
+  "remaining": [
+    "stabilize S3 wireless lidar before extended motion",
+    "movement so far below 0.05m keyframe threshold; map expansion not verified",
+    "verify distance scale and turning; complete larger mapping pass and loop closure"
+  ],
+  "map_files": [
+    "maps/first_mobile_20261106.yaml",
+    "maps/first_mobile_20261106.pgm",
+    "maps/first_mobile_20261106.png",
+    "maps/first_mobile_20261106.posegraph",
+    "maps/first_mobile_20261106.data"
+  ]
+}

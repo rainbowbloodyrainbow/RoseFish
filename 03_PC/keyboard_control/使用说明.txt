@@ -1,0 +1,57 @@
+电脑键盘遥控（Windows 浏览器 + WSL Ubuntu ROS 2 Humble）
+
+离线预览：在本项目目录打开 PowerShell，执行
+  powershell -ExecutionPolicy Bypass -File .\启动小车键盘遥控.ps1 -Preview
+只在电脑内计算速度，不启动 WSL、不发送 ROS 指令、不连接小车。
+
+正式使用：
+  powershell -ExecutionPolicy Bypass -File .\启动小车键盘遥控.ps1
+自动打开 http://127.0.0.1:8765 ，终端 Ctrl+C 关闭服务。
+此程序不负责启动 Agent、WiFi 转发或烧录固件，沿用已有链路。
+正式模式需要 WSL Ubuntu 内 ROS 2 Humble，ROS_DOMAIN_ID=0，
+micro-ROS Agent 与 Windows UDP 8888 转发已启动，小车上线并发布 /odom。
+程序不访问串口，不会启动此前的电机实验。
+
+操作：
+1. 点击“启用键盘控制”；底盘反馈状态只用于提示，不阻止启用。
+2. 保持页面前台，按住 W/↑ 前进、S/↓ 后退、A/← 左转、D/→ 右转。
+3. 松开方向键停车。W+A 等组合键用于弧线转弯。
+4. 空格、Esc、停车按钮、窗口失去焦点或隐藏页面均停车并取消启用。
+5. 重新启用之前松开所有方向键，再重新按下。
+6. 同时只打开一个遥控页面，关闭其他 /cmd_vel 发布程序。
+
+默认线速度 0.03 m/s、角速度 0.4 rad/s。
+滑块范围：线速度 0.01～0.20 m/s、角速度 0.1～0.8 rad/s。
+按 135.5 mm 轮距换算并等比例限制单轮目标速度≤0.20 m/s。
+反向/转弯尚需实车验证，首次仍保持小车架空。
+
+浏览器每 50 ms 刷新按键指令；WSL 以 20 Hz 发布
+geometry_msgs/msg/Twist 至 /cmd_vel，best-effort、volatile、depth=1。
+300 ms 没有键盘心跳，桥接程序发送零速度并锁定，恢复后需重新启用。
+按用户要求，600 ms 没有 /odom 或未发现命令订阅者只显示反馈中断，
+不会自动停车、取消启用或阻止发送指令。保持按键时会持续发送，连接恢复后可继续运动。
+退出时重复发送零速度；进程意外退出还依赖固件 400 ms 命令超时停车。
+显示值是发送目标，不是实测轮速；/odom 新鲜度不能证明动力电源和实际转动正常。
+ESP32 固件自身的 Agent 断连及 400 ms 命令超时停车逻辑仍然存在。
+此修改只取消电脑端反馈中断锁定，不能让断线期间的指令传到小车。
+
+文件：
+keyboard_server.py：Windows 服务，仅监听 127.0.0.1。
+panel.html：按键面板，含松键/失焦停车。
+ros_bridge.py：WSL ROS 2 发布器、独立超时保护。
+control_state.py：速度限制和停车逻辑。
+keyboard_bridge.log：正式模式 WSL 错误日志。
+test_control.py：离线测试，不导入 ROS，不启动 WSL。
+test_panel.cjs：页面按键事件测试，不联网。
+test_server.py：本机回环地址的预览服务测试，不启动 WSL/ROS。
+
+离线测试（hardware\keyboard_control 目录）：
+  C:\Users\28764\.platformio\penv\Scripts\python.exe -B -m unittest -v test_control
+  C:\Users\28764\.platformio\penv\Scripts\python.exe -B -m unittest -v test_server
+  node test_panel.cjs
+
+此工具只新增电脑端程序，未修改 remoteESP.c 或 ESP32 固件。
+
+2026-11-08 速度斜坡：直行加速度≤0.10m/s²，角加速度≤0.50rad/s²，非零目标变化共同限幅；单轮速度仍≤0.20m/s。
+方向释放对应分量立即归零；急停、失焦、心跳超时立即全零并取消启用，不使用缓慢停车。
+斜坡在ROS发布前执行，不改变固件换向等待，不保证实测加速度；反馈中断策略仍沿用用户此前设定。

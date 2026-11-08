@@ -1,0 +1,19 @@
+menu "Lidar WiFi bridge"
+    config LIDAR_RX_GPIO
+        int "Lidar UART RX GPIO"
+        range 0 48
+        default 4
+    config LIDAR_UART_BAUD
+        int "Lidar UART baud rate"
+        default 115200
+    config LIDAR_WIFI_SSID
+        string "2.4 GHz WiFi SSID"
+        default ""
+    config LIDAR_WIFI_PASSWORD
+        string "WiFi password"
+        default ""
+    config LIDAR_TCP_PORT
+        int "TCP server port"
+        range 1024 65535
+        default 8889
+endmenu

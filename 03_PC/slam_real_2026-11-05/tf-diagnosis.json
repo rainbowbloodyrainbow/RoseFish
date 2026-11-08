@@ -1,0 +1,59 @@
+{
+  "scans": 303,
+  "success": {
+    "odom": 301,
+    "map": 296
+  },
+  "latency": {
+    "odom": {
+      "max": 0.2982149124145508,
+      "over_0_4": 0
+    },
+    "map": {
+      "max": 0.2982349395751953,
+      "over_0_4": 0
+    }
+  },
+  "errors": [
+    [
+      "odom: Lookup would require extrapolation into the past.  Requested time 1793963617.526818 but the earliest data is at time 1793963617.949146, when looking up transform from frame [laser_link] to frame [odom]",
+      270
+    ],
+    [
+      "map: Lookup would require extrapolation into the past.  Requested time 1793963617.526818 but the earliest data is at time 1793963617.587520, when looking up transform from frame [laser_link] to frame [map]",
+      270
+    ],
+    [
+      "map: Lookup would require extrapolation into the past.  Requested time 1793963617.785464 but the earliest data is at time 1793963617.949146, when looking up transform from frame [laser_link] to frame [map]",
+      267
+    ],
+    [
+      "map: Lookup would require extrapolation into the past.  Requested time 1793963617.612102 but the earliest data is at time 1793963617.949146, when looking up transform from frame [laser_link] to frame [map]",
+      266
+    ],
+    [
+      "map: Lookup would require extrapolation into the past.  Requested time 1793963617.699849 but the earliest data is at time 1793963617.949146, when looking up transform from frame [laser_link] to frame [map]",
+      266
+    ],
+    [
+      "map: Lookup would require extrapolation into the past.  Requested time 1793963617.857631 but the earliest data is at time 1793963617.949146, when looking up transform from frame [laser_link] to frame [map]",
+      265
+    ]
+  ],
+  "links": {
+    "map->odom": {
+      "count": 500,
+      "max_gap": 0.05131936073303223,
+      "age_min": -0.4456145763397217,
+      "age_max": 0.10032796859741211,
+      "stamp_nonincreasing": 249
+    },
+    "odom->base_link": {
+      "count": 260,
+      "max_gap": 0.3626132011413574,
+      "age_min": -0.06664896011352539,
+      "age_max": 0.23048114776611328,
+      "stamp_nonincreasing": 0
+    }
+  }
+}

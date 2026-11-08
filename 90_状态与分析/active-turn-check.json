@@ -1,0 +1,14 @@
+{
+  "session": "/mnt/e/FishBot_Course/slam_real_2026-11-05/turn_checks/20261108_181646_ramp_left90",
+  "status": "waiting for D0WD connection; physical start aligned",
+  "motion_mode": "user manual keyboard only",
+  "slam_running": false,
+  "record_window_s": 1800,
+  "linear_accel_mps2": 0.1,
+  "angular_accel_radps2": 0.5,
+  "laser_offline": true,
+  "physical_target_deg": 90,
+  "baseline_recorded": false,
+  "physical_alignment_confirmed": true,
+  "reason": "D0WD IP unreachable; relay has zero board packets after restart; no odom samples"
+}

@@ -1,0 +1,53 @@
+{
+  "s3_chip": "ESP32-S3",
+  "s3_flash_bytes": 16777216,
+  "s3_mac": "28:84:85:49:36:e8",
+  "s3_ip": "10.212.8.152",
+  "s3_port": 8889,
+  "backup_bytes": 2097152,
+  "backup_sha256": "e98f7bc46383583c3d420594f6031e5d5f87cd0aafa7fe949aa30939c2763aea",
+  "firmware_sha256": "419b7132c3ce67ccabd34c0d4a0b70517a2f0c6278840f2faaef43a504228b39",
+  "original_archive_sha256": "2c1f3793cc7a0bbb88bc85a24967cd771ef328b5681b35c95b25faec3da1a8b0",
+  "same_wifi_as_chassis": true,
+  "mounting_calibrated": false,
+  "lidar_alone_verified": {
+    "messages": 244,
+    "scan_hz": 12.2145,
+    "min_valid_points": 135
+  },
+  "chassis_alone_verified": {
+    "messages": 128,
+    "odom_hz": 7.5192
+  },
+  "simultaneous_verification_passed": true,
+  "remaining": "Mounting position calibration deferred at user request; mobile SLAM/navigation not tested.",
+  "joint_verification": {
+    "scan_messages": 243,
+    "scan_hz": 12.193053698648702,
+    "min_valid_points": 263,
+    "scan_last": {
+      "t": 3348.457170765,
+      "count": 328,
+      "valid": 268,
+      "frame": "laser_link",
+      "age": 0.08816862106323242,
+      "min_m": 0.5354999899864197,
+      "max_m": 7.005499839782715
+    },
+    "odom_messages": 140,
+    "odom_hz": 7.020767582389626,
+    "odom_last": {
+      "t": 3348.457527323,
+      "age": 0.04647970199584961,
+      "parent": "odom",
+      "child": "base_link",
+      "v": 0.0,
+      "w": -0.0
+    },
+    "timestamped_tf_success": 241,
+    "pending_tf": 2,
+    "mounting_calibrated": false,
+    "passed": true
+  },
+  "verified_at_unix": 1793867705.8834944
+}

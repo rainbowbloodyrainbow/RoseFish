@@ -1,0 +1,141 @@
+{
+  "results": [],
+  "error": "Odometry feedback gap exceeds 350ms",
+  "samples": [
+    {
+      "recorded_at": 0,
+      "wifi": 0,
+      "agent": 0,
+      "valid": 0,
+      "ticks": [
+        0,
+        0
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371616.013819,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        6710,
+        6412
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371617.0367131,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        6710,
+        6412
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371618.061557,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        6710,
+        6412
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371619.0940247,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        6708,
+        6412
+      ],
+      "pwm": [
+        -265,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371620.117843,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        5645,
+        6411
+      ],
+      "pwm": [
+        -510,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371621.1507893,
+      "wifi": 1,
+      "agent": 0,
+      "valid": 0,
+      "ticks": [
+        2960,
+        6176
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371622.1713233,
+      "wifi": 1,
+      "agent": 0,
+      "valid": 0,
+      "ticks": [
+        2960,
+        6176
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371623.201069,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        2796,
+        6180
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    }
+  ]
+}

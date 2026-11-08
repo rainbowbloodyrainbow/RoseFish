@@ -1,0 +1,61 @@
+{
+  "at_unix": 1793964782.6625128,
+  "window_s": 25.0,
+  "timestamped_tf_success": 300,
+  "pending_tf": 2,
+  "mounting_calibrated": false,
+  "scan": {
+    "count": 302,
+    "hz": 12.058722667045812,
+    "max_gap_s": 0.1328395439995802,
+    "age_min_s": 0.027143001556396484,
+    "age_max_s": 0.1336350440979004,
+    "stamp_nonincreasing": 0,
+    "last": {
+      "t": 2124.191264625,
+      "stamp": 1793964782.525252,
+      "age": 0.08602285385131836,
+      "frame": "laser_link",
+      "valid": 251,
+      "points": 360,
+      "scan_time": 0.09091900289058685,
+      "angle_increment": 0.017501909285783768
+    },
+    "min_valid_points": 240
+  },
+  "odom": {
+    "count": 296,
+    "hz": 11.85924623067383,
+    "max_gap_s": 0.24535198500007027,
+    "age_min_s": -0.1178896427154541,
+    "age_max_s": 0.06558871269226074,
+    "stamp_nonincreasing": 0,
+    "last": {
+      "t": 2124.153020448,
+      "stamp": 1793964782.5969508,
+      "age": -0.023918628692626953,
+      "frame": "odom",
+      "child": "base_link",
+      "v": 0.0,
+      "w": -0.0,
+      "x": 0.0,
+      "y": 0.0
+    }
+  },
+  "cmd_vel": {
+    "count": 494,
+    "hz": 19.852881722052746,
+    "max_gap_s": 0.05226141200000711,
+    "age_min_s": null,
+    "age_max_s": null,
+    "stamp_nonincreasing": 0,
+    "last": {
+      "t": 2124.22156027,
+      "v": 0.0,
+      "w": 0.0
+    },
+    "nonzero_count": 0
+  },
+  "passed": true,
+  "failures": []
+}

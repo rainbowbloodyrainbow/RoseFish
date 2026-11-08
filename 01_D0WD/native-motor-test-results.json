@@ -1,0 +1,142 @@
+{
+  "results": [
+    {
+      "wheel": "left",
+      "wheel_target_mps": 0.03,
+      "command_duration_s": 0.8,
+      "tick_delta": [
+        1008,
+        0
+      ],
+      "peak_logged_pwm": [
+        241,
+        0
+      ],
+      "stopped": true,
+      "fault": false
+    },
+    {
+      "wheel": "right",
+      "wheel_target_mps": 0.03,
+      "command_duration_s": 0.8,
+      "tick_delta": [
+        0,
+        1015
+      ],
+      "peak_logged_pwm": [
+        0,
+        251
+      ],
+      "stopped": true,
+      "fault": false
+    }
+  ],
+  "error": null,
+  "samples": [
+    {
+      "recorded_at": 1793371242.0335276,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 0,
+      "ticks": [
+        -22,
+        -12
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371243.0706668,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        611,
+        -12
+      ],
+      "pwm": [
+        241,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371244.1077473,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        986,
+        -12
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371245.1354363,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        986,
+        -12
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371246.1652355,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        986,
+        521
+      ],
+      "pwm": [
+        0,
+        251
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371247.1984122,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        986,
+        1003
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371248.2311664,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        986,
+        1003
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    }
+  ]
+}

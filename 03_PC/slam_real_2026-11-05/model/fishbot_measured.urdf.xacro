@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="fishbot_measured_20261107">
+  <!-- Measured planar layout. Body thickness and wheel-center Z are visual
+       placeholders, not measured collision/inertia properties. -->
+  <xacro:arg name="body_thickness" default="0.001"/>
+  <xacro:arg name="wheel_center_z" default="0.0"/>
+  <xacro:arg name="laser_x" default="0.0033"/>
+  <xacro:arg name="laser_y" default="-0.01115"/>
+  <xacro:arg name="laser_z" default="0.05"/>
+  <xacro:arg name="laser_roll" default="0.0"/>
+  <xacro:arg name="laser_pitch" default="0.0"/>
+  <xacro:arg name="laser_yaw" default="-1.6406094968746698"/>
+  <material name="plate"><color rgba="0.16 0.42 0.65 1"/></material>
+  <material name="wheel"><color rgba="0.12 0.12 0.14 1"/></material>
+  <material name="laser"><color rgba="0.75 0.22 0.16 1"/></material>
+  <link name="base_link">
+    <visual><geometry><box size="0.1445 0.100 $(arg body_thickness)"/></geometry><material name="plate"/></visual>
+  </link>
+  <link name="base_axle"/>
+  <joint name="base_to_axle" type="fixed"><parent link="base_link"/><child link="base_axle"/><origin xyz="-0.07225 0 0"/></joint>
+  <xacro:macro name="wheel_visual" params="side y">
+    <link name="${side}_wheel_link"><visual><origin rpy="1.5707963267948966 0 0"/><geometry><cylinder radius="0.02365" length="0.0185"/></geometry><material name="wheel"/></visual></link>
+    <!-- Fixed visual wheel frames: no encoder JointState stream is available. -->
+    <joint name="${side}_wheel_mount" type="fixed"><parent link="base_axle"/><child link="${side}_wheel_link"/><origin xyz="0 ${y} $(arg wheel_center_z)"/></joint>
+  </xacro:macro>
+  <xacro:wheel_visual side="left" y="0.06775"/>
+  <xacro:wheel_visual side="right" y="-0.06775"/>
+  <link name="laser_link"><visual><geometry><cylinder radius="0.03175" length="0.001"/></geometry><material name="laser"/></visual></link>
+  <joint name="laser_mount" type="fixed"><parent link="base_link"/><child link="laser_link"/><origin xyz="$(arg laser_x) $(arg laser_y) $(arg laser_z)" rpy="$(arg laser_roll) $(arg laser_pitch) $(arg laser_yaw)"/></joint>
+</robot>

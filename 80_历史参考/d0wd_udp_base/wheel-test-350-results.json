@@ -1,0 +1,30 @@
+[
+  {
+    "wheel": 0,
+    "pwm_request": 350,
+    "tick_delta": [
+      3,
+      0
+    ],
+    "peak_pwm": [
+      350.0,
+      0.0
+    ],
+    "stopped": true,
+    "fault": false
+  },
+  {
+    "wheel": 1,
+    "pwm_request": 350,
+    "tick_delta": [
+      0,
+      -2
+    ],
+    "peak_pwm": [
+      0.0,
+      350.0
+    ],
+    "stopped": true,
+    "fault": false
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "D0WD": "E:\\FishBot_Course\\d0wd_link_2026-10-30\\native-win",
+  "S3": "E:\\FishBot_Course\\s3_lidar_car_2026-11-05\\firmware",
+  "keyboard": "E:\\FishBot_Course\\keyboard_control",
+  "SLAM": "E:\\FishBot_Course\\slam_real_2026-11-05",
+  "Ubuntu_driver": "/home/zsw2/fishbot_dual_ws/src/ydlidar_ros2",
+  "Ubuntu_agent": "/home/zsw2/micro_ros_agent_ws/src/micro-ROS-Agent"
+}

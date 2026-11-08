@@ -1,0 +1,24 @@
+{
+  "session": "/mnt/e/FishBot_Course/slam_real_2026-11-05/sessions/20261108_170522_quick",
+  "previous_session": "/mnt/e/FishBot_Course/slam_real_2026-11-05/sessions/20261108_164407_restart",
+  "started_unix": 1794128722.709981,
+  "status": "mapping",
+  "geometry_version": "measured_plate_center_20261107",
+  "motion_mode": "user keyboard only; disarmed",
+  "speed_limit_mps": 0.2,
+  "default_speed_mps": 0.03,
+  "slam_running": true,
+  "launch_pid": 10003,
+  "slam_pid": 10136,
+  "new_map_received": true,
+  "recording": true,
+  "rviz_running": true,
+  "record_pid": 10015,
+  "map": {
+    "width": 30,
+    "height": 23,
+    "resolution": 0.05
+  },
+  "verified_unix": 1794129127.751392,
+  "health_failures": []
+}

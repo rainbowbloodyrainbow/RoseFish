@@ -1,0 +1,9 @@
+{
+  "name": "framework-espidf-3.50400.0.tar.gz",
+  "size": 67991173,
+  "checksum": {
+    "sha256": "83600d40bcb82fd8217d580b0275a2affc9b446bb571fa8fdabcf1ad75e18433"
+  },
+  "system": "*",
+  "download_url": "https://dl.registry.platformio.org/download/platformio/tool/framework-espidf/3.50400.0/framework-espidf-3.50400.0.tar.gz"
+}

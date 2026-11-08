@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FishBot 键盘遥控</title>
+<style>
+body{font:17px system-ui,sans-serif;background:#101821;color:#e6edf5;margin:0;padding:40px 24px}
+main{max-width:700px;margin:auto}h1{font-size:30px}p{line-height:1.7;color:#bccbd8}
+.box{background:#1a2735;border:1px solid #34495d;border-radius:14px;padding:22px;margin:20px 0}
+button{font:inherit;padding:12px 22px;border:0;border-radius:8px;cursor:pointer;margin:6px;background:#78dbb6;color:#10221c}
+button.stop{background:#ff9c96}button:disabled{opacity:.4;cursor:default}
+kbd{display:inline-block;background:#304356;border:1px solid #536b80;border-radius:6px;padding:9px 14px;margin:4px}
+kbd.on{background:#78dbb6;color:#10221c}.keys{text-align:center;margin:20px}
+label{display:block;margin:14px 0}input{width:230px;vertical-align:middle}output{font-variant-numeric:tabular-nums}
+#mode{color:#78dbb6}#velocity{font-family:monospace}
+</style>
+<main><h1>FishBot 键盘遥控</h1><div id="mode">正在读取状态…</div>
+<p>保持此页面在前台，启用后按住按键移动，松开停车。切换窗口、空格急停或键盘心跳超时后，需要重新启用。Agent 反馈中断不再锁定控制。</p>
+<section class="box"><div id="status" role="status">等待连接</div>
+<button id="arm" disabled>启用键盘控制</button><button id="stop" class="stop">空格 · 停车</button>
+<div class="keys"><kbd data-action="forward">W / ↑</kbd><br><kbd data-action="left">A / ←</kbd><kbd data-action="backward">S / ↓</kbd><kbd data-action="right">D / →</kbd></div>
+<p>W/S 前进/后退，A/D 原地左转/右转。组合按键可转弯；反向按键同时按下时相互抵消。Esc 停车。</p>
+<label>直行速度 <input id="linear" type="range" min="0.01" max="0.20" step="0.005" value="0.03"> <output id="lv"></output> m/s</label>
+<label>转向速度 <input id="angular" type="range" min="0.1" max="0.8" step="0.05" value="0.4"> <output id="av"></output> rad/s</label>
+<div id="velocity">v = 0.000 m/s　ω = 0.000 rad/s</div></section>
+<p>单轮目标速度上限 0.20 m/s；直行加速度上限 0.10 m/s²，角加速度上限 0.50 rad/s²。松键与停车指令立即归零。显示值为斜坡后的发送目标，不是实测轮速。</p></main>
+<script>
+'use strict';
+const token='__TOKEN__', keys=new Set();
+const mapping={KeyW:'forward',ArrowUp:'forward',KeyS:'backward',ArrowDown:'backward',KeyA:'left',ArrowLeft:'left',KeyD:'right',ArrowRight:'right'};
+const $=id=>document.getElementById(id);
+let armed=false, intent=false, pending=false, epoch=0, sequence=Date.now()*1000;
+function drawKeys(){document.querySelectorAll('kbd').forEach(el=>el.classList.toggle('on',[...keys].some(k=>mapping[k]===el.dataset.action)));}
+async function send(packet){
+  packet.seq=++sequence;
+  const response=await fetch('/input',{method:'POST',headers:{'Content-Type':'application/json','X-Control-Token':token},body:JSON.stringify(packet),signal:AbortSignal.timeout(250)});
+  if(!response.ok){let detail={};try{detail=await response.json();}catch(_){}throw Error(detail.error||(response.status===403?'遥控页面已过期，请刷新页面':'控制服务不可用'));}
+}
+function stop(){
+  epoch++; intent=false;armed=false;keys.clear();drawKeys();
+  $('status').textContent='已停车；请重新启用';
+  send({type:'stop'}).catch(()=>{});
+}
+function command(){
+  const has=action=>[...keys].some(k=>mapping[k]===action)?1:0;
+  return {type:'command',v:armed?(has('forward')-has('backward'))*Number($('linear').value):0,
+          w:armed?(has('left')-has('right'))*Number($('angular').value):0};
+}
+async function tick(){
+  if(pending)return;
+  pending=true;const requestEpoch=epoch;
+  try{
+    await send(command());
+    const response=await fetch('/status',{signal:AbortSignal.timeout(250)});
+    if(!response.ok)throw Error('状态不可用');
+    const s=await response.json();
+    if(requestEpoch!==epoch)return;
+    if(armed&&!s.armed){keys.clear();drawKeys();intent=false;}
+    armed=intent&&Boolean(s.armed);
+    $('mode').textContent=s.preview?'离线预览 · 不连接 WSL，不发送小车指令':'ROS 2 /cmd_vel · '+(s.connected?'底盘反馈正常':'暂无底盘反馈，按键指令仍会发送');
+    $('status').textContent=s.reason;
+    $('arm').disabled=armed;
+    $('velocity').textContent=`v = ${s.v.toFixed(3)} m/s　ω = ${s.w.toFixed(3)} rad/s`;
+  }catch(error){intent=false;armed=false;keys.clear();drawKeys();$('arm').disabled=true;$('status').textContent=error.message||'控制服务超时；请检查终端';}
+  finally{pending=false;}
+}
+$('arm').onclick=()=>{keys.clear();drawKeys();intent=true;send({type:'arm'}).catch(()=>stop());$('arm').blur();};
+$('stop').onclick=stop;
+document.addEventListener('keydown',event=>{
+  if(event.code==='Space'||event.code==='Escape'){event.preventDefault();stop();return;}
+  if(mapping[event.code]){event.preventDefault();if(armed&&!event.repeat){keys.add(event.code);drawKeys();}}
+});
+document.addEventListener('keyup',event=>{if(mapping[event.code]){event.preventDefault();keys.delete(event.code);drawKeys();if(armed)send(command()).catch(()=>stop());}});
+window.addEventListener('blur',stop);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+window.addEventListener('pagehide',stop);
+for(const id of ['linear','angular']){
+  $(id).oninput=()=>{$(id==='linear'?'lv':'av').textContent=Number($(id).value).toFixed(3);};
+  $(id).oninput();
+}
+setInterval(tick,50);tick();
+</script></html>

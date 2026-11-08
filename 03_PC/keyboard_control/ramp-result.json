@@ -1,0 +1,21 @@
+{
+  "linear_accel_mps2": 0.1,
+  "angular_accel_radps2": 0.5,
+  "max_linear_mps": 0.2,
+  "max_angular_radps": 0.8,
+  "max_wheel_mps": 0.2,
+  "default_linear_mps": 0.03,
+  "default_angular_radps": 0.4,
+  "immediate_stop_on_release": true,
+  "immediate_stop_on_timeout": true,
+  "offline_python_tests": 16,
+  "page_tests_passed": true,
+  "service_restarted": true,
+  "control_armed": false,
+  "board_feedback_connected": false,
+  "nonzero_physical_test_sent": false,
+  "firmware_changed": false,
+  "clock_sync_changed": false,
+  "scan_timing_changed": false,
+  "backup": "E:\\FishBot_Course\\backups\\Keyboard_ramp_20261108_180937"
+}

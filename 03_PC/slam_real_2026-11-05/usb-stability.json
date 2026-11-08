@@ -1,0 +1,35 @@
+{
+  "scan": {
+    "count": 472,
+    "max_observed_gap_s": 0.18848872184753418
+  },
+  "odom": {
+    "count": 541,
+    "max_observed_gap_s": 0.24282360076904297
+  },
+  "rows": 595,
+  "duration_s": 40.00671124458313,
+  "max_tf_age_s": 1.7047982215881348,
+  "last": {
+    "scan_count": 472,
+    "odom_count": 541,
+    "map_count": 41,
+    "scan_received": 1793963546.310549,
+    "odom_received": 1793963546.3610015,
+    "tf_received": 1793963546.3112228,
+    "updated": 1793963546.3961437,
+    "cmd_publishers": 1,
+    "map_width": 173,
+    "map_height": 130,
+    "map_resolution": 0.05000000074505806,
+    "map_known": 433,
+    "map_occupied": 65,
+    "forward_obstacle_x_m": 1.4960239632141779,
+    "x": 0.055665653653153284,
+    "y": 0.014447619290832879,
+    "v": 0.0,
+    "w": -0.0,
+    "qz": 0.07920206998655076,
+    "qw": 0.9968585818007716
+  }
+}

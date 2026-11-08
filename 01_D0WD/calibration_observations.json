@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-30",
+  "wheel_diameter_m": 0.0473,
+  "wheel_separation_m": 0.1334,
+  "encoder_counts_per_wheel_revolution_candidate": 10200,
+  "encoder_counting_mode": "Must match the exact decoder used during user measurements; do not multiply by 4 again",
+  "encoder_direction_signs_verified": false,
+  "measurements": [
+    {
+      "wheel": "right",
+      "revolutions": 10,
+      "final_counts": 101999
+    },
+    {
+      "wheel": "right",
+      "revolutions": 5,
+      "final_counts": 51015
+    },
+    {
+      "wheel": "left",
+      "revolutions": 10,
+      "final_counts": 101999
+    },
+    {
+      "wheel": "left",
+      "revolutions": 5,
+      "final_counts": 50998
+    }
+  ],
+  "assumption": "Each run starts at zero, with wheel revolutions measured at the output wheel",
+  "meters_per_count_candidate": 1.4568365932823258e-05,
+  "geometry_status": "User hand measurements; provisional until floor calibration",
+  "observed_current_firmware": {
+    "project": "remoteESP",
+    "idf": "5.2.7",
+    "board_wifi_differs_from_pc": true,
+    "agent_address": "192.168.224.234",
+    "agent_port": 8888,
+    "agent_connected": false
+  },
+  "no_flash_write_performed": true
+}

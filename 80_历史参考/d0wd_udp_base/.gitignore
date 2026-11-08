@@ -1,0 +1,4 @@
+/build/
+/sdkconfig*
+/main/link_private.h
+/link-private.json

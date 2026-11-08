@@ -1,0 +1,33 @@
+当前主程序：用户提供的 remoteESP/main/remoteESP.c。
+Windows 构建副本：E:\FishBot_Course\d0wd_link_2026-10-30\native-win
+构建副本 main/remoteESP.c 与用户文件的 SHA256 一致：
+3DAE5B5840614F6244FD83FF1E1AE21A7DF393466846E7F21EE3D43060B02FF8
+
+本地环境：已安装的 Windows ESP-IDF 6.0.1。
+编译入口：运行同目录 build_native_local.ps1。
+仅在构建副本内适配 Windows 下的 micro-ROS 构建脚本、主机环境脚本和 IDF 6 驱动依赖。
+主程序的电机控制、Agent 状态机及串口日志保持原样。
+运行配置：WiFi 信息存放于私有 config/local-link.defaults，请勿分享该文件或包含它的完整固件。
+Agent 地址：10.212.8.109:8888。编译配置中的 PWM 上限恢复为原工程默认 1023。
+几何参数：轮径 47.30 mm，轮距 133.40 mm，编码器每圈 10200 计数。
+
+当前通信：ESP32 WiFi -> Windows UDP 8888 转发 -> 本机 WSL Ubuntu micro_ros_agent -> ROS 2 Humble。
+临时 udp_base 固件已被原程序替换，其 ROS 桥接节点和 UDP 9999 转发已停止。
+Windows udp_relay.py 已改为按 ESP32 源 IP/端口分别维护后端套接字，避免不同 UDP 会话的回复被转给最近一个客户端。
+WSL Agent：/home/zsw2/micro_ros_agent_ws/install/micro_ros_agent/lib/micro_ros_agent/micro_ros_agent udp4 --port 8888 -v4
+该进程需要在 source /opt/ros/humble/setup.bash 后启动。
+注意：重启 WSL 后 IP 可能改变；udp_relay.py 的后端地址需与 WSL hostname -I 一致。
+切换热点后，电脑的 WLAN 地址和固件 Agent 地址也必须保持一致。
+
+已验证：原程序编译、串口烧录及校验；WiFi=1 Agent=1；零速度 /cmd_vel 被接收；真实 /odom 与 /tf 到达电脑。
+20 秒检查结果见 native-link-check.json，串口证据见 native-validation-serial.log。
+该检查期间仍发生 Agent 断开重连及发布超时，不能据此宣称网络已稳定。
+更新：架空正向电机实验已完成，用户确认两轮均向前；编码器正向增量及测试后 PWM 归零已确认。
+初次 0.8 秒单轮实验：左轮 +1008、右轮 +1015 计数，未触发硬件故障。
+延长正向实验中采集脚本遇到文件替换锁冲突；原始串口仍记录到右轮停车、PWM=0,0。
+采集方式随后改为追加 JSONL，避免替换正在被 WSL 读取的状态文件。
+反向测试因里程计反馈超时及 Agent 会话掉线提前终止，未完成；末次串口确认 PWM=0,0、无锁存硬件故障。
+落地行走、连续反向、双轮同步速度精度及里程计实际距离标定尚未完成。
+
+串口日志读取：使用 capture_serial.py，默认 COM11、115200，--seconds 指定采集秒数。
+首次改动前的完整 Flash 备份位于 backup/before_link_changes_flash_4MB.bin。

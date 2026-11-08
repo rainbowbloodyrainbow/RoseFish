@@ -1,0 +1,11 @@
+{
+  "xacro_expanded": true,
+  "drawing_to_ros_coordinates_verified": true,
+  "tf_tree_root": "base_link",
+  "axle_offset_verified_m": 0.07225,
+  "center_twist_finite_difference_verified": true,
+  "plate_center_displacement_for_in_place_90deg_m": 0.10217692988145612,
+  "no_firmware_flash": true,
+  "firmware_build_passed": true,
+  "launch_arguments_parsed": true
+}

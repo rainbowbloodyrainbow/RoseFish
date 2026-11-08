@@ -1,0 +1,232 @@
+{
+  "results": [
+    {
+      "wheel": "left",
+      "wheel_target_mps": 0.03,
+      "command_duration_s": 3.0,
+      "tick_delta": [
+        5640,
+        0
+      ],
+      "peak_logged_pwm": [
+        222,
+        0
+      ],
+      "stopped": true,
+      "fault": false
+    },
+    {
+      "wheel": "right",
+      "wheel_target_mps": 0.03,
+      "command_duration_s": 3.0,
+      "tick_delta": [
+        0,
+        4794
+      ],
+      "peak_logged_pwm": [
+        0,
+        290
+      ],
+      "stopped": false,
+      "fault": false
+    }
+  ],
+  "error": "Test stopped because of fault or failed zero verification",
+  "samples": [
+    {
+      "recorded_at": 1793371389.471899,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 0,
+      "ticks": [
+        989,
+        1010
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371390.5093997,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        989,
+        1010
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371391.5437458,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        989,
+        1010
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371392.5743794,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        1513,
+        1010
+      ],
+      "pwm": [
+        222,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371393.5983427,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        3696,
+        1010
+      ],
+      "pwm": [
+        221,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371394.626256,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        5808,
+        1010
+      ],
+      "pwm": [
+        209,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371395.6650038,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        6629,
+        1010
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371396.6927035,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        6629,
+        1010
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371397.7240539,
+      "wifi": 1,
+      "agent": 0,
+      "valid": 0,
+      "ticks": [
+        6629,
+        1010
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371398.754113,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        6629,
+        1010
+      ],
+      "pwm": [
+        0,
+        0
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371399.8067644,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        6629,
+        1512
+      ],
+      "pwm": [
+        0,
+        258
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371400.837304,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        6629,
+        3722
+      ],
+      "pwm": [
+        0,
+        257
+      ],
+      "fault": false
+    },
+    {
+      "recorded_at": 1793371401.866006,
+      "wifi": 1,
+      "agent": 1,
+      "valid": 1,
+      "ticks": [
+        6629,
+        5804
+      ],
+      "pwm": [
+        0,
+        290
+      ],
+      "fault": false
+    }
+  ]
+}

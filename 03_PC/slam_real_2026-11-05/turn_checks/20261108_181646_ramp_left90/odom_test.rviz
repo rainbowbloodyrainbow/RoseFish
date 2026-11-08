@@ -1,0 +1,81 @@
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+- Class: rviz_common/Views
+  Name: Views
+Visualization Manager:
+  Class: ''
+  Global Options:
+    Background Color: 24; 30; 40
+    Fixed Frame: odom
+    Frame Rate: 20
+  Displays:
+  - Class: rviz_default_plugins/Grid
+    Name: Ground
+    Enabled: true
+    Cell Size: 0.2
+    Plane Cell Count: 30
+    Color: 90; 100; 115
+  - Class: rviz_default_plugins/Map
+    Name: SLAM Map
+    Enabled: false
+    Topic:
+      Value: /map
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+      History Policy: Keep Last
+      Depth: 1
+    Alpha: 0.85
+    Color Scheme: map
+    Draw Behind: true
+  - Class: rviz_default_plugins/LaserScan
+    Name: YDLIDAR X3
+    Enabled: false
+    Topic:
+      Value: /scan
+      Reliability Policy: Best Effort
+      Durability Policy: Volatile
+      History Policy: Keep Last
+      Depth: 10
+    Color Transformer: FlatColor
+    Color: 95; 240; 190
+    Position Transformer: XYZ
+    Style: Points
+    Size (Pixels): 3
+    Decay Time: 0
+  - Class: rviz_default_plugins/Odometry
+    Name: Wheel odometry
+    Enabled: true
+    Topic:
+      Value: /odom
+      Reliability Policy: Best Effort
+      Durability Policy: Volatile
+      History Policy: Keep Last
+      Depth: 10
+    Keep: 30
+    Position Tolerance: 0.01
+    Angle Tolerance: 0.02
+  - Class: rviz_default_plugins/TF
+    Name: Car and laser frames
+    Enabled: true
+    Frame Timeout: 5
+    Marker Scale: 0.3
+    Show Arrows: true
+    Show Axes: true
+    Show Names: true
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+  - Class: rviz_default_plugins/Select
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Scale: 220
+      Target Frame: <Fixed Frame>
+      X: 0
+      Y: 0
+Window Geometry:
+  Width: 1200
+  Height: 820
+  X: 80
+  Y: 60

@@ -1,0 +1,125 @@
+{
+  "version": "measured_plate_center_20261107",
+  "units": "m unless explicitly mm",
+  "measurement_frame": {
+    "x": "right",
+    "y": "forward",
+    "origin": "plate rear-left O"
+  },
+  "ros_frame": {
+    "x": "forward",
+    "y": "left",
+    "z": "up",
+    "base_link_origin_measurement_mm": [
+      50,
+      72.25
+    ],
+    "base_link_vertical_reference": "retain prior Z reference; actual plate/axle elevations not newly measured"
+  },
+  "plate": {
+    "width_m": 0.1,
+    "length_m": 0.1445
+  },
+  "wheels": {
+    "diameter_m": 0.0473,
+    "width_m": 0.0185,
+    "track_m": 0.1355,
+    "total_width_m": 0.154,
+    "ticks_per_rev": 10200,
+    "center_measurement_mm": {
+      "left": [
+        -17.75,
+        0
+      ],
+      "right": [
+        117.75,
+        0
+      ]
+    },
+    "centers_in_base_link_m": {
+      "left": [
+        -0.07225,
+        0.06775,
+        0
+      ],
+      "right": [
+        -0.07225,
+        -0.06775,
+        0
+      ]
+    },
+    "wheel_center_z_is_placeholder": true
+  },
+  "axle_in_base_link_m": [
+    -0.07225,
+    0,
+    0
+  ],
+  "laser": {
+    "measurement_xy_mm": [
+      61.15,
+      75.55
+    ],
+    "xyz_in_base_link_m": [
+      0.0033,
+      -0.01115,
+      0.05
+    ],
+    "xyz_in_axle_frame_m": [
+      0.07555,
+      -0.01115,
+      0.05
+    ],
+    "diameter_m": 0.0635,
+    "yaw_rad": -1.6406094968746698,
+    "yaw_deg": -94,
+    "yaw_uncertainty_deg": 5,
+    "height_carried_forward_m": 0.05,
+    "roll_pitch_assumed_zero": true
+  },
+  "body_outline_in_base_link_m": [
+    [
+      0.07225,
+      0.05
+    ],
+    [
+      0.07225,
+      -0.05
+    ],
+    [
+      -0.07225,
+      -0.05
+    ],
+    [
+      -0.07225,
+      0.05
+    ]
+  ],
+  "conservative_footprint_in_base_link_m": [
+    [
+      0.07225,
+      0.077
+    ],
+    [
+      0.07225,
+      -0.077
+    ],
+    [
+      -0.0959,
+      -0.077
+    ],
+    [
+      -0.0959,
+      0.077
+    ]
+  ],
+  "deployment": {
+    "new_firmware_required": true,
+    "flashed": true,
+    "running_services_restarted": false,
+    "build_succeeded": true,
+    "build_metadata": "geometry-build.json",
+    "flash_date": "2026-11-08",
+    "board_deployment_metadata": "geometry-board-deployment.json"
+  }
+}

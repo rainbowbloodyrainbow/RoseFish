@@ -1,0 +1,10 @@
+[
+  "01_D0WD\\native-win\\sdkconfig",
+  "01_D0WD\\native-win\\sdkconfig.defaults",
+  "01_D0WD\\native-win\\config\\local-link.defaults",
+  "02_S3\\firmware\\sdkconfig",
+  "02_S3\\firmware\\sdkconfig.archived",
+  "02_S3\\firmware\\sdkconfig.wifi.defaults",
+  "80_历史参考\\workspace_remoteESP\\sdkconfig.defaults",
+  "80_历史参考\\workspace_remoteESP\\config\\local-link.defaults"
+]
